@@ -19,26 +19,12 @@ Please refer to the paper listed in Reference for more details.
 
 1. Default build
    By default, the example would be release build and unit tests would be debug build
+  - test and example binary is under /build/bin/
 ```bash
   # At project root directory, do the following:
   mkdir build
   cmake -S . -B build
   cmake --build build
-```
-  - test binary is under /build/bin/test
-  - example binary is under /build/bin/example
-
-2. Debug build of example
-```bash
-  # For a debug build
-  cmake --build build -DCMAKE_BUILD_TYPE=Debug --target example
-  # output directory is same as above
-```
-3. Release build of unit test
-```bash
-  # For a release build
-  cmake --build build -DCMAKE_BUILD_TYPE=Release --target test
-  # output directory is same as above
 ```
 
 ## Reference
