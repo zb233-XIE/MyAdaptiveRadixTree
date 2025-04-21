@@ -1,0 +1,46 @@
+# Adaptive Radix Tree
+
+## Description
+
+The project implements an in-memory indexing data structure called Adaptive Radix Tree(ART). ART supports fast point/range query and prefix matching with a relatively low space consumption.  
+Compared to a trie or radix tree, ART optimizes space utilization by introducing four different node sizes and having a node expand or shrink as needed. ART also uses SIMD instructions provided by modern CPUs to speed up the search process inside a node.  
+Please refer to the paper listed in Reference for more details.
+
+## Structure
+
+- **/tests**: unit tests using GoogleTest framework
+- **/include**:
+  - **/art**: library implementation
+  - `art_printer.hpp`: a helper class to print the whole tree
+  - `art.hpp`: header to include
+- `example.cpp`: example code
+
+## Usage
+
+1. Default build
+   By default, the example would be release build and unit tests would be debug build
+```bash
+  # At project root directory, do the following:
+  mkdir build
+  cmake -S . -B build
+  cmake --build build
+```
+  - test binary is under /build/bin/test
+  - example binary is under /build/bin/example
+
+2. Debug build of example
+```bash
+  # For a debug build
+  cmake --build build -DCMAKE_BUILD_TYPE=Debug --target example
+  # output directory is same as above
+```
+3. Release build of unit test
+```bash
+  # For a release build
+  cmake --build build -DCMAKE_BUILD_TYPE=Release --target test
+  # output directory is same as above
+```
+
+## Reference
+
+[The Adaptive Radix Tree:ARTful Indexing for Main-Memory Databases](https://db.in.tum.de/~leis/papers/ART.pdf)
